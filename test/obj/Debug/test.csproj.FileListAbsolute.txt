@@ -1,0 +1,10 @@
+C:\Users\akani\Desktop\test\test\bin\Debug\test.exe.config
+C:\Users\akani\Desktop\test\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\akani\Desktop\test\test\bin\Debug\test.exe
+C:\Users\akani\Desktop\test\test\bin\Debug\test.pdb
+C:\Users\akani\Desktop\test\test\bin\Debug\Raven.Abstractions-4.5.dll
+C:\Users\akani\Desktop\test\test\bin\Debug\Raven.Client.Lightweight-4.5.dll
+C:\Users\akani\Desktop\test\test\bin\Debug\Raven.Abstractions-4.5.pdb
+C:\Users\akani\Desktop\test\test\bin\Debug\Raven.Client.Lightweight-4.5.pdb
+C:\Users\akani\Desktop\test\test\obj\Debug\test.exe
+C:\Users\akani\Desktop\test\test\obj\Debug\test.pdb
