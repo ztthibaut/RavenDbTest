@@ -411,7 +411,7 @@
             Advanced async session operations
             </summary>
         </member>
-        <member name="M:Raven.Client.IAsyncAdvancedSessionOperations.LoadStartingWithAsync``1(System.String,System.Int32,System.Int32)">
+        <member name="M:Raven.Client.IAsyncAdvancedSessionOperations.LoadStartingWithAsync``1(System.String,System.Int32,System.Int32,System.String)">
             <summary>
             Load documents with the specified key prefix
             </summary>
@@ -1607,7 +1607,7 @@
             </summary>
             <param name="entity">The entity.</param>
         </member>
-        <member name="M:Raven.Client.ISyncAdvancedSessionOperation.LoadStartingWith``1(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:Raven.Client.ISyncAdvancedSessionOperation.LoadStartingWith``1(System.String,System.String,System.Int32,System.Int32,System.String)">
             <summary>
             Load documents with the specified key prefix
             </summary>
@@ -2474,7 +2474,7 @@
             Get the indexing status
             </summary>
         </member>
-        <member name="M:Raven.Client.Connection.Async.IAsyncDatabaseCommands.StartsWithAsync(System.String,System.Int32,System.Int32,System.Boolean)">
+        <member name="M:Raven.Client.Connection.Async.IAsyncDatabaseCommands.StartsWithAsync(System.String,System.Int32,System.Int32,System.Boolean,System.String)">
             <summary>
             Get documents with id of a specific prefix
             </summary>
@@ -4611,7 +4611,7 @@
             Provide statistics about the query, such as total count of matching records
             </summary>
         </member>
-        <member name="M:Raven.Client.Document.AsyncDocumentQuery`1.SetResultTransformer(System.String)">
+        <member name="M:Raven.Client.Document.AsyncDocumentQuery`1.Raven#Client#IDocumentQueryBase{T@Raven#Client#IAsyncDocumentQuery{T}}#SetResultTransformer(System.String)">
             <summary>
             Sets a transformer to use after executing a query
             </summary>
@@ -5338,7 +5338,7 @@
             needed to receive the notification and forcing to check for cached data.
             </summary>
         </member>
-        <member name="P:Raven.Client.Document.DocumentConvention.ShouldSaveChangesForceAggresiveCacheCheck">
+        <member name="P:Raven.Client.Document.DocumentConvention.ShouldSaveChangesForceAggressiveCacheCheck">
             <summary>
             Whatever or not RavenDB should in the aggressive cache mode should force the aggresive cache
             to check with the server after we called SaveChanges() on a non empty data set.
@@ -5416,16 +5416,26 @@
             Note that this option impact only queries, since we have Strong Consistency model for the documents
             </summary>
         </member>
-        <member name="F:Raven.Client.Document.ConsistencyOptions.MonotonicRead">
+        <member name="F:Raven.Client.Document.ConsistencyOptions.None">
             <summary>
             Ensures that after querying an index at time T, you will never see the results
             of the index at a time prior to T.
             This is ensured by the server, and require no action from the client
             </summary>
         </member>
-        <member name="F:Raven.Client.Document.ConsistencyOptions.QueryYourWrites">
+        <member name="F:Raven.Client.Document.ConsistencyOptions.AlwaysWaitForNonStaleResultsAsOfLastWrite">
             <summary>
              After updating a documents, will only accept queries which already indexed the updated value.
+            </summary>
+        </member>
+        <member name="F:Raven.Client.Document.ConsistencyOptions.QueryYourWrites">
+            <summary>
+            Use AlwaysWaitForNonStaleResultsAsOfLastWrite, instead
+            </summary>
+        </member>
+        <member name="F:Raven.Client.Document.ConsistencyOptions.MonotonicRead">
+            <summary>
+            Use None, instead
             </summary>
         </member>
         <member name="T:Raven.Client.Document.DocumentSessionListeners">
@@ -6126,7 +6136,7 @@
             Initializes a new instance of the <see cref="T:Raven.Client.Document.Async.AsyncDocumentSession"/> class.
             </summary>
         </member>
-        <member name="M:Raven.Client.Document.Async.AsyncDocumentSession.LoadStartingWithAsync``1(System.String,System.Int32,System.Int32)">
+        <member name="M:Raven.Client.Document.Async.AsyncDocumentSession.LoadStartingWithAsync``1(System.String,System.Int32,System.Int32,System.String)">
             <summary>
             Load documents with the specified key prefix
             </summary>
@@ -6542,7 +6552,7 @@
             Or whatever your conventions specify.
             </remarks>
         </member>
-        <member name="M:Raven.Client.Document.Batches.ILazySessionOperations.LoadStartingWith``1(System.String,System.String,System.Int32,System.Int32)">
+        <member name="M:Raven.Client.Document.Batches.ILazySessionOperations.LoadStartingWith``1(System.String,System.String,System.Int32,System.Int32,System.String)">
             <summary>
             Load documents with the specified key prefix
             </summary>
@@ -6757,6 +6767,11 @@
         <member name="M:Raven.Client.Indexes.AbstractCommonApiForIndexesAndTransformers.Recurse``2(``0,System.Func{``0,System.Collections.Generic.HashSet{``1}})">
             <summary>
             Allows to use lambdas recursively
+            </summary>
+        </member>
+        <member name="M:Raven.Client.Indexes.AbstractCommonApiForIndexesAndTransformers.LoadAttachmentForIndexing(System.String)">
+            <summary>
+            Loads the specifed document during the indexing process
             </summary>
         </member>
         <member name="M:Raven.Client.Indexes.AbstractCommonApiForIndexesAndTransformers.LoadDocument``1(System.String)">
@@ -7680,6 +7695,12 @@
         <member name="P:Raven.Client.Indexes.RavenDocumentsByEntityName.IndexName">
             <summary>
             Return the actual index name
+            </summary>
+        </member>
+        <member name="T:Raven.Client.Indexes.RavenMethodAttribute">
+            <summary>
+            When applied to a custom extension method used in an index, RavenDB will translate
+            the invocation to a regular method call so it can be understood by the server.
             </summary>
         </member>
         <member name="T:Raven.Client.Linq.ExpressionInfo">
